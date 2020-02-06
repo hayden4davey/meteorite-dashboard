@@ -43,7 +43,7 @@ def meteorites():
             "Name": result[1],
             "Classification": result[2],
             "Mass": result[3],
-            "Year": result[4],
+            "Year": result[4][6:-12],
             "Latitude": result[5],
             "Longitude": result[6]}
         meteorite_list.append(meteorite_data)
