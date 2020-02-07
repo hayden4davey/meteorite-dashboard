@@ -35,6 +35,6 @@ function buildMap(sites) {
 		});
 		
 		// Plot a marker with a pop-up
-		L.marker([site.Latitude, site.Longitude], {icon: greyIcon}).bindPopup("<h1>" + site.Name + "</h1> <hr> <h3>Discovered: " + site.Year + "<br> Classification: " + site.Classification + "<br> Mass: " + site.Mass + "g </h3>").addTo(map);
+		L.marker([site.Latitude, site.Longitude], {icon: greyIcon}).bindPopup("<h1>" + site.Name + "</h1> <hr> <h3>Fell: " + site.Year + "<br> Classification: " + site.Classification + "<br> Mass: " + site.Mass + "g </h3>").addTo(map);
 	}
 };
