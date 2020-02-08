@@ -23,18 +23,23 @@ function buildMap(sites) {
   
   // Loop through the sites array
 	for (var i = 0; i < sites.length; i++) {
-		var site = sites[i];
 		
-		// Customize marker
-		var greyIcon = new L.Icon({
-			iconUrl: 'marker-icon-grey.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 41],
-			popupAnchor: [1, -34],
-			shadowSize: [41, 41]
-		});
+		// Exclude null coordinates
+		if (site.Latitude == null) {continue;}
+		if (site.Longitude == null) {continue;}
 		
-		// Plot a marker with a pop-up
-		L.marker([site.Latitude, site.Longitude], {icon: greyIcon}).bindPopup("<h1>" + site.Name + "</h1> <hr> <h3>Fell: " + site.Year + "<br> Classification: " + site.Classification + "<br> Mass: " + site.Mass + "g </h3>").addTo(map);
+			var site = sites[i];
+			
+			// Customize marker
+			var greyIcon = new L.Icon({
+				iconUrl: 'marker-icon-grey.png',
+				iconSize: [25, 41],
+				iconAnchor: [12, 41],
+				popupAnchor: [1, -34],
+				shadowSize: [41, 41]
+			});
+			
+			// Plot a marker with a pop-up
+			L.marker([site.Latitude, site.Longitude], {icon: greyIcon}).bindPopup("<h1>" + site.Name + "</h1> <hr> <h3>Fell: " + site.Year + "<br> Classification: " + site.Classification + "<br> Mass: " + site.Mass + "g </h3>").addTo(map);
 	}
 };
