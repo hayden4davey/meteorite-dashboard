@@ -23,13 +23,10 @@ function buildMap(sites) {
   
   // Loop through the sites array
 	for (var i = 0; i < sites.length; i++) {
-		
-		// Exclude null coordinates
+		var site = sites[i];
 		if (site.Latitude == null) {continue;}
 		if (site.Longitude == null) {continue;}
 		
-			var site = sites[i];
-			
 			// Customize marker
 			var greyIcon = new L.Icon({
 				iconUrl: 'marker-icon-grey.png',
@@ -41,5 +38,6 @@ function buildMap(sites) {
 			
 			// Plot a marker with a pop-up
 			L.marker([site.Latitude, site.Longitude], {icon: greyIcon}).bindPopup("<h1>" + site.Name + "</h1> <hr> <h3>Fell: " + site.Year + "<br> Classification: " + site.Classification + "<br> Mass: " + site.Mass + "g </h3>").addTo(map);
+		
 	}
 };
