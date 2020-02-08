@@ -1,10 +1,11 @@
 # Import dependencies
 import os
 from flask import Flask, jsonify
+from flask import render_template
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine, func, desc
 from config import password
 
 # Flask set up  
@@ -50,6 +51,30 @@ def meteorites():
 
     
     return jsonify(meteorite_list)  
+    
+# Route to return largest meteorites
+@app.route("/api/largest")
+def largest():
+
+    # Query database 
+    results = session.query(Meteorite.id, Meteorite.name, Meteorite.recclass, Meteorite.mass_g, Meteorite.year, Meteorite.reclat, Meteorite.reclong).filter(Meteorite.mass_g != None).order_by(desc(Meteorite.mass_g)).limit(10).all()
+    
+    largest_list = []
+    
+    # Loop through and save results to list
+    for result in results:
+        largest_data = {
+            "ID": result[0],
+            "Name": result[1],
+            "Classification": result[2],
+            "Mass": result[3],
+            "Year": result[4][6:-12],
+            "Latitude": result[5],
+            "Longitude": result[6]}
+        largest_list.append(largest_data)
+
+    
+    return jsonify(largest_list)  
     
 if __name__=="__main__":
     app.run(debug=True)
