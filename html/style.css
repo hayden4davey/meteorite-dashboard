@@ -1,0 +1,29 @@
+.navbar-custom {
+  background-color: transparent;
+}
+
+.nav-item {
+  color: white;
+}
+
+.titlecustom {
+  color: #FFF;
+  font-family: "lato", sans-serif;
+  letter-spacing: 8px;
+  font-size: 20px;
+}
+
+.jumbotron {
+    background-color: transparent;
+    color: white;
+}
+
+.jumbotron-title {
+    font-family: "lato", sans-serif;
+    letter-spacing: 10px;
+}
+
+.jumbotron-p {
+    font-family: "lato", sans-serif;
+}
+
