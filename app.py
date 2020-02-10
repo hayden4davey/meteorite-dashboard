@@ -6,13 +6,20 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, desc
-from config import password
+#from config import password
+#from boto.s3.connection import S3Connection
 
 # Flask set up  
 app = Flask(__name__)
 
+# Get config keys
+database_url = os.environ.get('DATABASE_URL')    
+password = os.environ.get('API_KEY')
+#database_url = S3Connection(os.environ['DATABASE_URL'])
+#password = S3Connection(os.environ['API_KEY'])
+
 # Database set up
-engine = create_engine(f"postgres://rjjyvluhffgfit:{password}@ec2-54-197-34-207.compute-1.amazonaws.com:5432/ddk7ubc172h81e")
+engine = create_engine(database_url)
 
 # Reflect
 Base = automap_base()
