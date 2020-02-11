@@ -33,7 +33,7 @@ session = Session(engine)
 # Route to render template
 @app.route("/")
 def index():
-    data = password
+    data = {'password': password}
     return render_template("index.html", data=data)
  
 # Route to return meteorite info
