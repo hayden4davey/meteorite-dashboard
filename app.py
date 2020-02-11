@@ -6,7 +6,8 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, desc
-#from config import password
+#from config import database_url
+#from config import api_key
 #from boto.s3.connection import S3Connection
 
 # Flask set up  
@@ -14,7 +15,7 @@ app = Flask(__name__)
 
 # Get config keys
 database_url = os.environ.get('DATABASE_URL')    
-password = os.environ.get('API_KEY')
+api_key = os.environ.get('API_KEY')
 #database_url = S3Connection(os.environ['DATABASE_URL'])
 #password = S3Connection(os.environ['API_KEY'])
 
@@ -33,7 +34,7 @@ session = Session(engine)
 # Route to render template
 @app.route("/")
 def index():
-    data = {'password': password}
+    data = {'password': api_key}
     return render_template("index.html", data=data)
  
 # Route to return meteorite info
