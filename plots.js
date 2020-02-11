@@ -1,5 +1,5 @@
 // Dependencies
-var API_KEY = "" // add to config file
+var API_KEY = api_key // add to config file
 var queryUrl = "meteorites.json" //change to "https://meteorite-dashboard.herokuapp.com/api/meteorites" when live
 
 var data = queryUrl
