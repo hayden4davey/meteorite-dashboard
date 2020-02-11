@@ -1,5 +1,5 @@
 // Dependencies
-var API_KEY = api_key; // add to config file
+var API_KEY = api_key; 
 var queryUrl = "/api/meteorites" ;
 
 
