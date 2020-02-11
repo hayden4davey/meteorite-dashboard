@@ -1,8 +1,8 @@
 // Dependencies
-var API_KEY = api_key // add to config file
-var queryUrl = "meteorites.json" //change to "https://meteorite-dashboard.herokuapp.com/api/meteorites" when live
+var API_KEY = api_key; // add to config file
+var queryUrl = "/api/meteorites" ;
 
-var data = queryUrl
+
 // Perform a GET request to the query URL
 d3.json(queryUrl, function(sites) {
   buildMap(sites);
@@ -37,7 +37,7 @@ function buildMap(sites) {
 			});
 			
 			// Plot a marker with a pop-up
-			L.marker([site.Latitude, site.Longitude], {icon: greyIcon}).bindPopup("<h1>" + site.Name + "</h1> <hr> <h3>Fell: " + site.Year + "<br> Classification: " + site.Classification + "<br> Mass: " + site.Mass + "g </h3>").addTo(map);
+			L.marker([site.Latitude, site.Longitude], {icon: greyIcon}).bindPopup("<h3>" + site.Name + "</h3> <hr> <h5>Fell: " + site.Year + "<br> Classification: " + site.Classification + "<br> Mass: " + site.Mass + "g </h5>").addTo(map);
 		
 	}
 };
