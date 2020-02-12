@@ -14,7 +14,7 @@ d3.json(url).then(function(data) {
       maxdate=data[i].Year;
     }
   }
-  for (i=860; i<=2013; i++){
+  for (i=1500; i<=2013; i++){
     yearsdictionary[i]=0;
     for (j=0; j<data.length; j++){
       if (data[j].Year==i){
@@ -33,16 +33,53 @@ var data = [{
     color: "#17BECF"
   }
 }];
+  
 var layout = {
-  title: `Annual Frequency of Meteorite Strikes`,
+  paper_bgcolor: "Transparent",
+  plot_bgcolor: "Transparent",
+  title: {
+    text: 'Annual Frequency of Observable Meteorite Strikes in the Past 500 Years',
+    font: {
+      family: 'sans-serif',
+      size: 18,
+      color: 'White'
+    }
+  },
   xaxis: {
+    tickfont: {
+      family: 'sans-serif',
+      size: 12,
+      color: 'White'
+    },
     autorange: true,
-    type: "date"
+    showgrid: false,
+    type: "date",
+    title: {
+      text: 'Year',
+      font: {
+        family: 'sans-serif',
+        size: 14,
+        color: 'White'
+      }
+    }
   },
   yaxis: {
+    tickfont: {
+      family: 'sans-serif',
+      size: 12,
+      color: 'White'
+    },
     autorange: true,
-    type: "linear"
-  }
+    showgrid: false,
+    type: "linear",    
+    title: {
+      text: 'Frequency (Strikes/Year)',
+      font: {
+        family: 'sans-serif',
+        size: 14,
+        color: 'White'
+      }}}
 };
+  
 Plotly.newPlot("plot", data, layout);
 });
