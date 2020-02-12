@@ -30,7 +30,7 @@ var data = [{
   x: Object.keys(yearsdictionary),
   y: Object.values(yearsdictionary),
   line: {
-    color: "#17BECF"
+    color: "White"
   }
 }];
   
