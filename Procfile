@@ -1,0 +1,1 @@
+web: gunicorn meteorite-dashboard.app:app
