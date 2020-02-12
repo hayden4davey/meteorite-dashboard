@@ -6,9 +6,9 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, desc
-#from config import database_url
-#from config import api_key
-from boto.s3.connection import S3Connection
+from config import database_url
+from config import api_key
+#from boto.s3.connection import S3Connection
 
 # Flask set up  
 app = Flask(__name__)
@@ -16,8 +16,8 @@ app = Flask(__name__)
 # Get config keys
 #database_url = os.environ.get('DATABASE_URL')    
 #api_key = os.environ.get('API_KEY')
-database_url = S3Connection(os.environ['DATABASE_URL'])
-password = S3Connection(os.environ['API_KEY'])
+#database_url = S3Connection(os.environ['DATABASE_URL'])
+#password = S3Connection(os.environ['API_KEY'])
 
 # Database set up
 engine = create_engine(database_url)
