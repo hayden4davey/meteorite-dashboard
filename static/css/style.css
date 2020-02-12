@@ -10,6 +10,18 @@
   margin-right: auto 
 }
 
+#plot {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto 
+}
+
+#bar {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto 
+}
+
 body, html {
   height: 100%;
   width: 100%;
