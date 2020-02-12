@@ -13,3 +13,4 @@ nbconvert==5.4.0
 python-dateutil==2.7.3
 pytz==2018.5
 six==1.11.0
+psycopg2==2.8.4
