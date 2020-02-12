@@ -1,5 +1,5 @@
 /* global Plotly */
-var url = "meteorites.json" //change to "https://meteorite-dashboard.herokuapp.com/api/meteorites" when live;
+var url = "/api/meteorites" //change to "https://meteorite-dashboard.herokuapp.com/api/meteorites" when live;
 
 // Fetch the JSON data and console log it
 mindate= 1900;

@@ -2,9 +2,10 @@
 var API_KEY = api_key; 
 var queryUrl = "/api/meteorites" ;
 
-
+console.log('hello')
 // Perform a GET request to the query URL
 d3.json(queryUrl, function(sites) {
+	console.log(sites)
   buildMap(sites);
 });
 
@@ -29,7 +30,7 @@ function buildMap(sites) {
 		
 			// Customize marker
 			var greyIcon = new L.Icon({
-				iconUrl: 'marker-icon-grey.png',
+				iconUrl: './static/img/marker-icon-grey.png',
 				iconSize: [25, 41],
 				iconAnchor: [12, 41],
 				popupAnchor: [1, -34],

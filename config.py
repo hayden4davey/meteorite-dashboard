@@ -1,0 +1,2 @@
+database_url = 'postgres://rjjyvluhffgfit:a41fd670afb4334426fd5299dd8372df5b23012c703cd1edab9ecbd538776698@ec2-54-197-34-207.compute-1.amazonaws.com:5432/ddk7ubc172h81e'
+api_key = 'pk.eyJ1IjoiaGF5ZGVuZGF2ZXkiLCJhIjoiY2sybWRiZWJzMGdwNTNibXUycXA4MXE4NCJ9.Vd2p-GslK4jWh-_Pqqu6_w'
