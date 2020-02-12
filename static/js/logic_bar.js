@@ -46,7 +46,7 @@ function buildPlot(data, labels, options, id, elementID) {
 
 // build dropdown
 function buildDrop() {
-    d3.json('/api/meteorites').then(function(data) {
+    d3.json('/api/largest').then(function(data) {
         var dropDown = d3.select('#selDataset');
         data.forEach(function(item) { dropDown.append('option')
             .attr('value', data.indexOf(item))
@@ -57,7 +57,7 @@ function buildDrop() {
 
 // build panel
 function buildPanel(id) {
-    d3.json('/api/meteorites').then(function(data) {
+    d3.json('/api/largest').then(function(data) {
         var meteorite = data[id]
     
         table = d3.select('.panel-body')
@@ -75,7 +75,7 @@ function getData() {
     var chartData = [];
     var chartLabels = [];
     
-    d3.json('/api/meteorites').then(function(data) { 
+    d3.json('/api/largest').then(function(data) { 
             
         data.forEach(function(item) {
     
