@@ -14,15 +14,14 @@ from sqlalchemy import create_engine, func, desc
 app = Flask(__name__)
 
 # Get config keys
-#database_url = os.environ.get('DATABASE_URL')    
-#api_key = os.environ.get('API_KEY')
-api_key='pk.eyJ1IjoiaGF5ZGVuZGF2ZXkiLCJhIjoiY2sybWRiZWJzMGdwNTNibXUycXA4MXE4NCJ9.Vd2p-GslK4jWh-_Pqqu6_w'
+database_url = os.environ.get('DATABASE_URL')    
+api_key = os.environ.get('API_KEY')
 #database_url = S3Connection(os.environ['DATABASE_URL'])
 #password = S3Connection(os.environ['API_KEY'])
 
 # Database set up
 #engine = create_engine(database_url)
-engine = create_engine("postgres://rjjyvluhffgfit:a41fd670afb4334426fd5299dd8372df5b23012c703cd1edab9ecbd538776698@ec2-54-197-34-207.compute-1.amazonaws.com:5432/ddk7ubc172h81e")
+engine = create_engine(database_url)
 
 # Reflect
 Base = automap_base()
