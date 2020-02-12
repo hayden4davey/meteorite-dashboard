@@ -8,19 +8,18 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, desc
 #from config import database_url
 #from config import api_key
-#from boto.s3.connection import S3Connection
+from boto.s3.connection import S3Connection
 
 # Flask set up  
 app = Flask(__name__)
 
 # Get config keys
-database_url = os.environ.get('DATABASE_URL')    
-api_key = os.environ.get('API_KEY')
-#database_url = S3Connection(os.environ['DATABASE_URL'])
-#password = S3Connection(os.environ['API_KEY'])
+#database_url = os.environ.get('DATABASE_URL')    
+#api_key = os.environ.get('API_KEY')
+database_url = S3Connection(os.environ['DATABASE_URL'])
+password = S3Connection(os.environ['API_KEY'])
 
 # Database set up
-#engine = create_engine(database_url)
 engine = create_engine(database_url)
 
 # Reflect
@@ -32,11 +31,16 @@ Meteorite = Base.classes.meteorites
 
 session = Session(engine)
 
-# Route to render template
+# Route to render plots template
 @app.route("/")
 def index():
+    return render_template("index.html")
+    
+# Route to render map template
+@app.route("/map")
+def map():
     data = {'password': api_key}
-    return render_template("index.html", data=data)
+    return render_template("map.html", data=data)
  
 # Route to return meteorite info
 @app.route("/api/meteorites")

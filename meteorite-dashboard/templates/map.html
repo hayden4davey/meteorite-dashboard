@@ -29,6 +29,7 @@
 		  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     <body>
+
 		<nav class="navbar navbar-expand-lg navbar-dark navbar-custom ">
 			<a class="titlecustom" href="/"><strong>Dashboard</strong></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,30 +50,11 @@
 			<h1 class="jumbotron-title" >Worldwide Meteorite Impact App</h1>
 			<p class="jumbotron-p">The below interactive visualizations are the outcome of our thoroughly exhaustive analysis of NASA's Meteorite Landing Data</p>
 		</div>
-		<!-- For some reason Plotly needs a new version of D3-->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/lineplots.js') }}"></script>
-		<div id="plot"></div>
-		<div class='row'>
-			<div class='col-md-1'></div>
-			<div class='col-md-8'>
-				<canvas id="bar"></canvas>
-			</div>
-			<div class="col-md-3">
-				<div class="well">
-				  <h5 class="text-white"><b>Choose a Meteorite...</b></h5>
-				  <select id="selDataset"></select>
-				</div>
-				<div class="panel panel-primary text-white">
-				  <div class="panel-heading">
-					<br>
-					<h4 class="panel-title text-white">Meteorite Info:</h4>
-				  </div>
-				  <div id="sample-metadata" class="panel-body"></div>
-				</div>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/logic_bar.js') }}"></script>	
-		</div>
+		<div id="map"></div>
+		<script type="text/javascript">
+            var api_key = {{ data.password|tojson }}
+        </script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/plots.js') }}"></script>
 		<div id="container"></div>
         <script src="{{ url_for('static', filename='js/starfield.js') }}"></script>
         <script>
