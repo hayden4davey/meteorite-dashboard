@@ -1,0 +1,1 @@
+FLASK_APP=meteorite-dashboard/app.py flask run
