@@ -2,7 +2,7 @@
 var API_KEY = api_key; 
 var queryUrl = "/api/meteorites" ;
 
-console.log('hello')
+console.log('test')
 // Perform a GET request to the query URL
 d3.json(queryUrl, function(sites) {
 	console.log(sites)
@@ -16,9 +16,12 @@ function buildMap(sites) {
 		zoom:3
 	});
 	
-	L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+		attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+		tileSize: 512,
 		maxZoom: 18,
-		id: "mapbox.dark",
+		zoomOffset: -1,
+		id: 'mapbox/streets-v11',
 		accessToken: API_KEY
 	}).addTo(map);
   
